@@ -60,9 +60,7 @@ function App() {
           x: 200,
           y: 400,
         },
-        data: {
-    
-        }
+        data: {}
       }
       ])
   }
@@ -95,7 +93,7 @@ function App() {
         <MiniMap />
       </ReactFlow>
 
-      <Toolbar.Root className='fixed flex gap-10 bottom-20 left-1/2 -translate-x-1/2 bg-white rounded-2xl shadow-lg border border-zinc-300 px-8 h-20 w-max overflow-hidden'>
+      <Toolbar.Root className='fixed flex gap-10 bottom-10 left-1/2 -translate-x-1/2 bg-white rounded-2xl shadow-lg border border-zinc-300 px-8 h-20 w-max overflow-hidden'>
         <Toolbar.Button 
           onClick={() => addSquareNode('square')}
           className='w-32 h-32 bg-violet-500 rounded mt-6 transition-transform hover:-translate-y-3'>
