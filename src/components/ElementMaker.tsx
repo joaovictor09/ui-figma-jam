@@ -28,7 +28,7 @@ function ElementMaker(props: ElementMakerInterface) {
               onDoubleClick={props.handleDoubleClick}
               contentEditable={"false"}
               
-              className="w-full h-full flex items-center justify-center bg-transparent text-center outline-none resize-none"
+              className="w-full h-full flex items-center justify-center bg-transparent text-center outline-none resize-none cursor-pointer"
             >
               {props.value}
             </textarea>
