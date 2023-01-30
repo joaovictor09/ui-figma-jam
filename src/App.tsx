@@ -57,7 +57,7 @@ function App() {
         id: crypto.randomUUID(),
         type,
         position: {
-          x: 200,
+          x: 600,
           y: 400,
         },
         data: {}
