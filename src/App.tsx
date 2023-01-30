@@ -6,9 +6,11 @@ import * as Toolbar from '@radix-ui/react-toolbar'
 import { Square } from './components/nodes/Square';
 import { useCallback } from 'react';
 import DefaultEdge from './components/edges/DefaultEdge';
+import { Circle } from './components/nodes/Circle';
 
 const NODE_TYPES = {
   square: Square,
+  circle: Circle,
 }
 
 const EDGE_TYPES = {
@@ -48,12 +50,12 @@ function App() {
     return setEdges(edges => addEdge(connection, edges))
   }, [])
 
-  function addSquareNode(){
+  function addSquareNode(type: string){
     setNodes(nodes => [
       ...nodes,
       {
         id: crypto.randomUUID(),
-        type: 'square',
+        type,
         position: {
           x: 200,
           y: 400,
@@ -93,12 +95,16 @@ function App() {
         <MiniMap />
       </ReactFlow>
 
-      <Toolbar.Root className='fixed bottom-20 left-1/2 -translate-x-1/2 bg-white rounded-2xl shadow-lg border border-zinc-300 px-8 h-20 w-96 overflow-hidden'>
+      <Toolbar.Root className='fixed flex gap-10 bottom-20 left-1/2 -translate-x-1/2 bg-white rounded-2xl shadow-lg border border-zinc-300 px-8 h-20 w-max overflow-hidden'>
         <Toolbar.Button 
-          onClick={addSquareNode}
+          onClick={() => addSquareNode('square')}
           className='w-32 h-32 bg-violet-500 rounded mt-6 transition-transform hover:-translate-y-3'>
-
         </Toolbar.Button>
+        <Toolbar.Button 
+          onClick={() => addSquareNode('circle')}
+          className='w-32 h-32 bg-violet-500 rounded-full mt-6 transition-transform hover:-translate-y-3'>
+        </Toolbar.Button>
+
       </Toolbar.Root>
     </div>
   )
