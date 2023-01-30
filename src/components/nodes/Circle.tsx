@@ -2,10 +2,26 @@ import { NodeResizer } from '@reactflow/node-resizer'
 import { NodeProps, Handle, Position } from 'reactflow'
 
 import '@reactflow/node-resizer/dist/style.css';
+import { ChangeEvent, useState } from 'react';
+import ElementMaker from '../ElementMaker';
 
-export function Circle({ selected }: NodeProps){
+export function Circle({ selected, data }: NodeProps){
+
+  const [text, setText] = useState(data.label);
+  const [showInputEle, setShowInputEle] = useState(false);
   return(
     <div className='bg-violet-500 rounded-full min-w-[200px] min-h-[200px] w-full h-full'>
+      <div className='w-full h-s py-4 mx-2'>
+        <ElementMaker
+          value={text}
+          handleChange={(e: ChangeEvent<HTMLTextAreaElement>) => setText(e.target.value)}  
+          handleDoubleClick={() => setShowInputEle(true)} 
+          handleBlur={() => setShowInputEle(false)}         
+          showInputEle={showInputEle}
+        />
+
+      </div>
+
       <NodeResizer 
         minWidth={200}
         minHeight={200}
