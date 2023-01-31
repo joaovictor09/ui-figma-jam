@@ -8,12 +8,17 @@ module.exports = {
     extend: {
       keyframes: {
         appear: {
-          '0%': { transform: 'scale(0)' },
-          '100%': { transform: 'scale(1)'}
+          '0%': { marginTop: '100%' },
+          '100%': { marginTop: '0%'}
+        },
+        appearToolbar: {
+          '0%': { transform: 'translateY(100%)'},
+          '100%': { transform: 'translateY(0)'}
         }
       },
       animation: {
-        'appearing': 'appear 0.1s linear'
+        'appearing': 'appear 0.1s linear',
+        'appearingToolbar': 'appearToolbar 0.1s linear'
       }
     },
   },

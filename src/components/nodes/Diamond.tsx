@@ -11,26 +11,27 @@ export function Diamond({ selected, data }: NodeProps){
   const [showInputEle, setShowInputEle] = useState(false);
   
   return (
-    <div className='bg-violet-500 rounded min-w-[200px] min-h-[200px] w-full h-full flex rotate-45'>
-      
-      <div className='w-full py-4 mx-2'>
-        <ElementMaker
-          value={text}
-          handleChange={(e: ChangeEvent<HTMLTextAreaElement>) => setText(e.target.value)}  
-          handleDoubleClick={() => setShowInputEle(true)} 
-          handleBlur={() => setShowInputEle(false)}         
-          showInputEle={showInputEle}
-        />
-
+    <div className='min-w-[200px] min-h-[200px] w-full h-full flex'>
+      <div className='bg-violet-500 rounded min-w-[200px] min-h-[200px] w-full h-full flex rotate-45'>
+        <div className='w-full py-4 mx-2 -rotate-45'>
+          <ElementMaker
+            value={text}
+            handleChange={(e: ChangeEvent<HTMLTextAreaElement>) => setText(e.target.value)}  
+            handleDoubleClick={() => setShowInputEle(true)} 
+            handleBlur={() => setShowInputEle(false)}         
+            showInputEle={showInputEle}
+          />
+        </div>
       </div>
-        <NodeResizer 
-          minWidth={200}
-          minHeight={200}
-          isVisible={selected}
-          lineClassName='border-blue-400'
-          handleClassName='h-3 w-3 bg-white border-2 rounded border-blue-400 '
-        />
-        
+      <NodeResizer 
+        minWidth={200}
+        minHeight={200}
+        isVisible={selected}
+        lineClassName='border-blue-400'
+        handleClassName='h-3 w-3 bg-white border-2 rounded border-blue-400 '
+      />
+      
+      <div className='w-full h-full -rotate-45 fixed'>
         <Handle 
           id="right" 
           type='source' 
@@ -56,6 +57,7 @@ export function Diamond({ selected, data }: NodeProps){
           className='-bottom-5 w-3 h-3 bg-blue-400/80'
         />
       </div>
+    </div>
       
   )
 }
