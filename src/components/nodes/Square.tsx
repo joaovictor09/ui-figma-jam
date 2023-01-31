@@ -2,7 +2,6 @@ import { NodeResizer } from '@reactflow/node-resizer'
 import { NodeProps, Handle, Position } from 'reactflow'
 
 import '@reactflow/node-resizer/dist/style.css';
-import { CaretRight } from 'phosphor-react';
 import { ChangeEvent, useState } from 'react';
 import ElementMaker from '../ElementMaker';
 
@@ -13,7 +12,7 @@ export function Square({ selected, data }: NodeProps){
 
   return(
     <div className='bg-violet-500 rounded min-w-[200px] min-h-[200px] w-full h-full flex'>
-      <div className='w-full h-s py-4 mx-2'>
+      <div className='w-full py-4 mx-2'>
         <ElementMaker
           value={text}
           handleChange={(e: ChangeEvent<HTMLTextAreaElement>) => setText(e.target.value)}  
